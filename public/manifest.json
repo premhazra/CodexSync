@@ -1,0 +1,61 @@
+{
+  "name": "CodexSync - Auto-sync your LeetCode & GeeksforGeeks solutions to GitHub — zero effort.",
+  "description": "Automatically sync accepted coding solutions from LeetCode and GeeksforGeeks to GitHub.",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html",
+    "default_title": "CodexSync"
+  },
+  "icons": {
+    "16": "logo192.png",
+    "48": "logo192.png",
+    "128": "logo192.png"
+  },
+  "permissions": [
+    "tabs",
+    "storage",
+    "cookies",
+    "unlimitedStorage",
+    "webRequest",
+    "scripting"
+  ],
+  "host_permissions": [
+    "https://leetcode.com/*",
+    "https://api.github.com/*",
+    "https://github.com/*",
+    "https://geeksforgeeks.org/*",
+    "https://www.geeksforgeeks.org/*",
+    "https://practice.geeksforgeeks.org/*"
+  ],
+  "background": {
+    "service_worker": "scripts/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://github.com/*"],
+      "js": ["scripts/authorizeGithub.js"],
+      "run_at": "document_start"
+    },
+    {
+      "matches": ["https://leetcode.com/problems/*"],
+      "js": ["scripts/leetcode.js"],
+      "run_at": "document_idle"
+    },
+    {
+      "matches": [
+        "https://geeksforgeeks.org/problems/*",
+        "https://www.geeksforgeeks.org/problems/*",
+        "https://practice.geeksforgeeks.org/problems/*"
+      ],
+      "js": ["scripts/geeksforgeeks.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["logo192.png"],
+      "matches": ["https://leetcode.com/*", "https://*.geeksforgeeks.org/*", "https://geeksforgeeks.org/*"]
+    }
+  ]
+}

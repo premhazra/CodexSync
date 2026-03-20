@@ -1,0 +1,7 @@
+export {
+  GITHUB_CLIENT_ID,
+  GITHUB_CLIENT_SECRET,
+  GITHUB_REDIRECT_URI,
+  APP_NAME,
+  VERSION,
+} from './config.js';

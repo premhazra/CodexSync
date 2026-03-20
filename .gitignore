@@ -1,0 +1,10 @@
+node_modules
+dist
+.DS_Store
+*.vscode
+build
+.env
+src/config.production.js
+src/config.production.ts
+DSA/
+package-lock.json
