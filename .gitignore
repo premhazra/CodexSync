@@ -4,6 +4,9 @@ dist
 *.vscode
 build
 .env
+.env.local
+.env.*.local
+!.env.example
 src/config.production.js
 src/config.production.ts
 DSA/

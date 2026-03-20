@@ -255,18 +255,18 @@ npm install
 
 ### 2. Configure OAuth
 
-Create `src/config.js` from the example:
+Create a local env file from the example:
 
 ```bash
-cp src/config.example.js src/config.js
+cp .env.example .env.local
 ```
 
 Add your [GitHub OAuth App](https://github.com/settings/developers) credentials:
 
-```js
-export const CLIENT_ID = 'your_github_client_id';
-export const CLIENT_SECRET = 'your_github_client_secret';
-export const REDIRECT_URI = 'https://github.com/?referrer=codexsync';
+```env
+VITE_GITHUB_CLIENT_ID=your_github_client_id
+VITE_GITHUB_CLIENT_SECRET=your_github_client_secret
+VITE_GITHUB_REDIRECT_URI=https://github.com/?referrer=codexsync
 ```
 
 > **GitHub OAuth App settings:**
